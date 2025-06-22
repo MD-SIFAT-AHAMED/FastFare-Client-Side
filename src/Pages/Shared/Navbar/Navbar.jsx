@@ -37,10 +37,10 @@ const Navbar = () => {
           {links}
         </ul>
         <div className="flex items-center space-x-2 text-[#606060]">
-          <button className="md:text-[20px] rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px]">
+          <button className=" rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px]">
             Sign In
           </button>
-          <button className="hidden md:block text-[20px] rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px] bg-[#caeb66]">
+          <button className="hidden md:block rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px] bg-[#caeb66]">
             Sign Up
           </button>
         </div>
