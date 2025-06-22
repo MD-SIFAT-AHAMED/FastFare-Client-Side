@@ -3,18 +3,18 @@ import FastFareLogo from "../FastFareLogo/FastFareLogo";
 
 const Footer = () => {
   return (
-    <div>
-      <div>
-        <footer className="footer text-[#DADADA] bg-black footer-horizontal footer-center p-10">
+    <div className="bg-gray-100">
+      <div className="max-w-screen w-11/12 py-10 mx-auto ">
+        <footer className="footer text-[#DADADA] rounded-4xl bg-black footer-horizontal footer-center p-10">
           <aside>
-            <FastFareLogo className="" />
+            <FastFareLogo />
             <p className="font-medium text-center">
               Enjoy fast, reliable parcel delivery with real-time tracking and
               zero hassle. From personal packages to <br /> business shipments —
               we deliver on time, every time.
             </p>
           </aside>
-          <ul className="flex justify-center items-center border-y-1 border-dashed border-blue-400 py-5 w-11/12">
+          <ul className="flex flex-col md:flex-row justify-center items-center border-y-1 border-dashed border-gray-400 py-5 w-11/12">
             <li>Services</li>
             <li>Coverage</li>
             <li>About us</li>
