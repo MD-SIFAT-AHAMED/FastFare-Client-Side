@@ -4,7 +4,7 @@ import FastFareLogo from "../FastFareLogo/FastFareLogo";
 const Footer = () => {
   return (
     <div className="bg-gray-100">
-      <div className="max-w-screen w-11/12 py-10 mx-auto ">
+      <div className="max-w-screen-2xl w-11/12 py-10 mx-auto ">
         <footer className="footer text-[#DADADA] rounded-4xl bg-black footer-horizontal footer-center p-10">
           <aside>
             <FastFareLogo />

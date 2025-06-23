@@ -29,12 +29,12 @@ const services = [
 const ServiceProdive = () => {
   return (
     <div className="bg-gray-100">
-        <hr className="w-11/12 mx-auto border-dashed border-gray-600" />
-      <div className="max-w-screen-2xl w-11/12 mx-auto py-10 space-y-8 ">
+
+      <div className="max-w-screen-2xl w-11/12 mx-auto py-15 space-y-8 border-y border-dashed border-gray-600 ">
         {services.map((service) => (
           <div
             key={service.id}
-            className="card w-full text-center md:text-start bg-base-100 rounded-2xl flex flex-col md:flex-row items-center p-5 px-10"
+            className="card w-full text-center md:text-start bg-base-100 rounded-2xl flex flex-col md:flex-row items-center p-5 md:px-10"
           >
             {/* Left image section */}
             <div className="">
