@@ -4,6 +4,7 @@ import OurServices from '../OurServices/OurServices';
 import ClientLogoMarquee from '../ClientLogoMarquee/ClientLogoMarquee';
 import ServiceProdive from '../ServiceProvide/ServiceProvide';
 import BeMerchant from '../BeMerchant/BeMerchant';
+import CommentSwiper from '../CommentSwiper/CommentSwiper';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <ClientLogoMarquee/>
             <ServiceProdive/>
             <BeMerchant/>
+            <CommentSwiper/>
         </div>
     );
 };

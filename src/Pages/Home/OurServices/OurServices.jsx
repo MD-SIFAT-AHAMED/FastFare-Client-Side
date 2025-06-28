@@ -51,7 +51,9 @@ const OurServices = () => {
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto bg-[#03373D] px-12 py-[80px] lg:px-[110px] lg:py-[100px] rounded-4xl my-10">
       <div className="text-center mb-12">
-        <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">Our Services</h2>
+        <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+          Our Services
+        </h2>
         <p className="text-[#DADADA] max-w-2xl mx-auto">
           Enjoy fast, reliable parcel delivery with real-time tracking and zero
           hassle. From personal packages to business shipments — we deliver on
@@ -63,7 +65,9 @@ const OurServices = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="card bg-base-100 shadow-md rounded-3xl border border-gray-200 hover:bg-[#caeb66] hover:scale-105 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+            className="card bg-base-100 shadow-md rounded-3xl border border-gray-200 hover:bg-[#caeb66] transition-transform duration-300 ease-in-out hover:scale-105"
           >
             <div className="card-body items-center text-center">
               {service.icon}

@@ -28,12 +28,13 @@ const services = [
 
 const ServiceProdive = () => {
   return (
-    <div className="bg-gray-100">
-
+    <div className="bg-gray-100 py-10">
       <div className="max-w-screen-2xl w-11/12 mx-auto py-15 space-y-8 border-y border-dashed border-gray-600 ">
         {services.map((service) => (
           <div
             key={service.id}
+            data-aos="zoom-in"
+            data-aos-duration="1000"
             className="card w-full text-center md:text-start bg-base-100 rounded-2xl flex flex-col md:flex-row items-center p-5 md:px-10"
           >
             {/* Left image section */}
