@@ -7,18 +7,25 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 const Banner = () => {
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto">
-      <Carousel autoPlay={true} showStatus={false} infiniteLoop={true} showThumbs={false}>
-        <div>
-          <img src={bannerImg1} />
-        </div>
-        <div>
-          <img src={bannerImg2} />
-        </div>
-        <div>
-          <img src={bannerImg3} />
-        </div>
-      </Carousel>
+    <div className="bg-gray-100">
+      <div className="max-w-screen-2xl w-11/12 mx-auto">
+        <Carousel
+          autoPlay={true}
+          showStatus={false}
+          infiniteLoop={true}
+          showThumbs={false}
+        >
+          <div>
+            <img src={bannerImg1} />
+          </div>
+          <div>
+            <img src={bannerImg2} />
+          </div>
+          <div>
+            <img src={bannerImg3} />
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 };

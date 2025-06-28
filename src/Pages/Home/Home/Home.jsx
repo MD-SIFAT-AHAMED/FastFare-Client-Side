@@ -6,11 +6,13 @@ import ServiceProdive from '../ServiceProvide/ServiceProvide';
 import BeMerchant from '../BeMerchant/BeMerchant';
 import CommentSwiper from '../CommentSwiper/CommentSwiper';
 import FaqSection from '../FaqSection/FaqSection';
+import HowWorks from '../HowWorks/HowWorks';
 
 const Home = () => {
     return (
         <div>
             <Banner/>
+            <HowWorks/>
             <OurServices/>
             <ClientLogoMarquee/>
             <ServiceProdive/>
