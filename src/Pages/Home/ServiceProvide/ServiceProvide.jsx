@@ -38,7 +38,7 @@ const ServiceProdive = () => {
             className="card w-full text-center md:text-start bg-base-100 rounded-2xl flex flex-col md:flex-row items-center p-5 md:px-10"
           >
             {/* Left image section */}
-            <div className="">
+            <div>
               <img src={service.img} alt={service.title} className="" />
             </div>
 

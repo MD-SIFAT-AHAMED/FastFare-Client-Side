@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-
+import headerImg from "../../../assets/customer-top.png";
 const CommentSwiper = () => {
   const testimonials = [
     {
@@ -60,7 +60,12 @@ const CommentSwiper = () => {
 
   return (
     <div className="py-16 bg-gray-100 text-center">
-      <div className="max-w-screen-2xl w-11/12 mx-auto">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="max-w-screen-2xl w-11/12 mx-auto"
+      >
+        <img className="mx-auto mb-6" src={headerImg} alt="" />
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#03373d]">
           What our customers are sayings
         </h2>

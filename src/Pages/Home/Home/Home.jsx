@@ -5,6 +5,7 @@ import ClientLogoMarquee from '../ClientLogoMarquee/ClientLogoMarquee';
 import ServiceProdive from '../ServiceProvide/ServiceProvide';
 import BeMerchant from '../BeMerchant/BeMerchant';
 import CommentSwiper from '../CommentSwiper/CommentSwiper';
+import FaqSection from '../FaqSection/FaqSection';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <ServiceProdive/>
             <BeMerchant/>
             <CommentSwiper/>
+            <FaqSection/>
         </div>
     );
 };
