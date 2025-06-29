@@ -43,15 +43,20 @@ const Login = () => {
           <label className="label">Password</label>
           <div className="relative">
             <input
-              type={`${showPassword ? 'password' : "text"}`}
+              type={`${showPassword ? "password" : "text"}`}
               className="input w-full"
               placeholder="Password"
               {...register("password", { required: true, minLength: 6 })}
             />
-            <div 
-            onClick={()=>setShowPassword(prev => !prev)}
-            className="absolute bottom-3 right-4 z-10">
-              {showPassword  ? <FaRegEyeSlash size={15} /> : <IoEyeOutline size={15}/> }
+            <div
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute bottom-3 right-4 z-10"
+            >
+              {showPassword ? (
+                <FaRegEyeSlash size={15} />
+              ) : (
+                <IoEyeOutline size={15} />
+              )}
             </div>
           </div>
 
@@ -65,21 +70,23 @@ const Login = () => {
           )}
 
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <Link to={"/forgotPassword"}>
+              <p className="link link-hover">Forgot password?</p>
+            </Link>
           </div>
           <button className="btn btn-primary font-medium text-black mt-4">
             Login
           </button>
         </fieldset>
+        <p className="my-2">
+          Don't have any account?{" "}
+          <Link to={"/register"}>
+            <span className="!text-[#8FA748] hover:underline">Register</span>
+          </Link>
+        </p>
+        <p className="text-center">Or</p>
       </form>
-      <p className="my-2">
-        Don't have any account?{" "}
-        <Link to={"/register"}>
-          <span className="!text-[#8FA748] hover:underline">Register</span>
-        </Link>
-      </p>
-      <p className="text-center">Or</p>
-      <button className="btn w-full bg-gray-100">
+      <button className="btn w-xs md:w-md  bg-gray-100">
         <FcGoogle size={20} />
         LogIn With Google
       </button>

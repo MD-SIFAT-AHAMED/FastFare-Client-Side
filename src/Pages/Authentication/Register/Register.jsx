@@ -18,7 +18,7 @@ const Register = () => {
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <div className="mb-3 space-y-2">
         <h3 className="text-3xl md:text-4xl font-extrabold">
           Create an Account
@@ -82,22 +82,20 @@ const Register = () => {
             </p>
           )}
 
-          <div>
-            <a className="link link-hover">Forgot password?</a>
-          </div>
           <button className="btn btn-primary font-medium text-black mt-4">
             Login
           </button>
         </fieldset>
+        <p className="my-2">
+          Already have an account?{" "}
+          <Link to={"/login"}>
+            <span className="!text-[#8FA748] hover:underline">Login</span>
+          </Link>
+        </p>
+        <p className="text-center">Or</p>
       </form>
-      <p className="my-2">
-        Already have an account?{" "}
-        <Link to={"/login"}>
-          <span className="!text-[#8FA748] hover:underline">Login</span>
-        </Link>
-      </p>
-      <p className="text-center">Or</p>
-      <button className="btn w-full bg-gray-100">
+
+      <button className="btn w-xs md:w-md  bg-gray-100">
         <FcGoogle size={20} />
         Register With Google
       </button>
