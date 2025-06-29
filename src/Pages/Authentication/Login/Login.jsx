@@ -11,15 +11,34 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(true);
-  const { createUser, updateUserData } = useAuth();
+  const { signIn, loginWithGoggle } = useAuth();
 
   const onSubmit = (data) => {
     console.log(data);
-   
+    signIn(data.email, data.password)
+      .then(() => {
+        toast.success("Login Successfuly");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+    // Form value reset
+    reset();
+  };
+
+  const handlerLoginWithGoogle = () => {
+    loginWithGoggle()
+      .then(() => {
+        toast.success("Login Successfuly");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
   };
 
   return (
@@ -91,7 +110,10 @@ const Login = () => {
         </p>
         <p className="text-center">Or</p>
       </form>
-      <button className="btn w-xs md:w-md  bg-gray-100">
+      <button
+        onClick={handlerLoginWithGoogle}
+        className="btn w-xs md:w-md  bg-gray-100"
+      >
         <FcGoogle size={20} />
         LogIn With Google
       </button>

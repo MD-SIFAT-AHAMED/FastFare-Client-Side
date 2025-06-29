@@ -34,7 +34,7 @@ const Register = () => {
       .catch((err) => {
         toast.error(err.code);
       });
-    // Form reset
+    // Form value reset
     reset();
   };
 
