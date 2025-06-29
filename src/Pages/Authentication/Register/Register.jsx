@@ -4,19 +4,49 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(true);
+  const { createUser, updateUserData, loginWithGoggle } = useAuth();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const userData = {
+      displayName: data.name,
+    };
+    createUser(data.email, data.password)
+      .then(() => {
+        updateUserData(userData)
+          .then(() => {
+            toast.success("Login Successfuly");
+          })
+          .catch((err) => {
+            toast.error(err.code);
+          });
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+    // Form reset
+    reset();
   };
 
+  const handlerLoginWithGoogle = () => {
+    loginWithGoggle()
+      .then(() => {
+        toast.success("Login Successfuly");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   return (
     <div className="">
       <div className="mb-3 space-y-2">
@@ -83,7 +113,7 @@ const Register = () => {
           )}
 
           <button className="btn btn-primary font-medium text-black mt-4">
-            Login
+            Register
           </button>
         </fieldset>
         <p className="my-2">
@@ -95,7 +125,10 @@ const Register = () => {
         <p className="text-center">Or</p>
       </form>
 
-      <button className="btn w-xs md:w-md bg-gray-100">
+      <button
+        onClick={handlerLoginWithGoogle}
+        className="btn w-xs md:w-md bg-gray-100"
+      >
         <FcGoogle size={20} />
         Register With Google
       </button>

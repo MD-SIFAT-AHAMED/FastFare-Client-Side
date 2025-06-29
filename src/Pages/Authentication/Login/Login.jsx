@@ -4,6 +4,8 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -11,10 +13,13 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [showPassword, setShowPassword] = useState(true);
+  const { createUser, updateUserData } = useAuth();
 
   const onSubmit = (data) => {
     console.log(data);
+   
   };
 
   return (
