@@ -51,7 +51,7 @@ const FaqSection = () => {
             className="collapse collapse-arrow  focus:border border-[#03373D] bg-base-100 focus:bg-[#e6f2f3] mb-3"
           >
             <div className="collapse-title text-[#03373D] font-semibold">{faq.question}</div>
-            <div className="collapse-content text-[#606060] text-base">{faq.answer}</div>
+            <div className="collapse-content text-[#606060] text-base font-semibold">{faq.answer}</div>
           </div>
         ))}
       </div>

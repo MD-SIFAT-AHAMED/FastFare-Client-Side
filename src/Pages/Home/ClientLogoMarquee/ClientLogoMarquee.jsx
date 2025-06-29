@@ -18,19 +18,23 @@ const logos = [
 ];
 const ClientLogoMarquee = () => {
   return (
-    <div className="max-w-screen-2xl w-11/12 mx-auto my-10">
-      <div>
-        <h2 className="text-2xl md:text-[28px] text-center text-[#03373D] font-bold my-10">We've helped thousands of sales teams</h2>
-        <Marquee speed={40} pauseOnHover={true} gradient={false}>
-          {logos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt="Service Logo"
-              className="mx-10"
-            />
-          ))}
-        </Marquee>
+    <div className="bg-gray-100 py-10">
+      <div className="max-w-screen-2xl w-11/12 mx-auto ">
+        <div>
+          <h2 className="text-2xl md:text-[28px] text-center text-[#03373D] font-bold my-10">
+            We've helped thousands of sales teams
+          </h2>
+          <Marquee  speed={40} pauseOnHover={true} gradient={false}>
+            {logos.map((logo, index) => (
+              <img
+                key={index}
+                src={logo}
+                alt="Service Logo"
+                className="mx-10"
+              />
+            ))}
+          </Marquee>
+        </div>
       </div>
     </div>
   );
