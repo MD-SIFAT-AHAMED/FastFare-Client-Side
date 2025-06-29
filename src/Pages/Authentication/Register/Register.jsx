@@ -18,7 +18,7 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="">
       <div className="mb-3 space-y-2">
         <h3 className="text-3xl md:text-4xl font-extrabold">
           Create an Account
@@ -95,7 +95,7 @@ const Register = () => {
         <p className="text-center">Or</p>
       </form>
 
-      <button className="btn w-xs md:w-md  bg-gray-100">
+      <button className="btn w-xs md:w-md bg-gray-100">
         <FcGoogle size={20} />
         Register With Google
       </button>
