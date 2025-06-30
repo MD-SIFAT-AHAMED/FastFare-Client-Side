@@ -6,6 +6,8 @@ import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import ForgotPassword from "../Pages/Authentication/ForgotPassword/ForgotPassword";
 import CoverAge from "../Pages/CoverAge/CoverAge";
+import PrivateRouter from "../Routes/PrivateRouter";
+import SendParcel from "../Pages/SendParcel/SendParcel";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,15 @@ const router = createBrowserRouter([
         path: "/coverage",
         Component: CoverAge,
         loader: () => fetch("./services.json"),
+      },
+      {
+        path: "/sendparcel",
+        loader: () => fetch("./services.json"),
+        element: (
+          <PrivateRouter>
+            <SendParcel />
+          </PrivateRouter>
+        ),
       },
     ],
   },

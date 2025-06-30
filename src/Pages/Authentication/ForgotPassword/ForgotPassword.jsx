@@ -27,7 +27,7 @@ const ForgotPassword = () => {
         className="**:text-black md:**:text-base **:focus:outline-none *:w-full "
       >
         <fieldset className="fieldset">
-          <label className="label">Email</label>
+          <label className="label font-medium">Email</label>
           <input
             type="email"
             className="input w-full"

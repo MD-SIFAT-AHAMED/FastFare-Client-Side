@@ -61,7 +61,7 @@ const Register = () => {
         className="**:text-black w-xs md:w-md md:**:text-base **:focus:outline-none *:w-full "
       >
         <fieldset className="fieldset">
-          <label className="label">Name</label>
+          <label className="label font-medium">Name</label>
           <input
             type="text"
             className="input w-full"
@@ -72,7 +72,7 @@ const Register = () => {
             <p className="!text-red-500">Please Enter Your Name</p>
           )}
 
-          <label className="label">Email</label>
+          <label className="label font-medium">Email</label>
           <input
             type="email"
             className="input w-full"
@@ -83,7 +83,7 @@ const Register = () => {
             <p className="!text-red-500">Please Enter Your Email</p>
           )}
 
-          <label className="label">Password</label>
+          <label className="label font-medium">Password</label>
           <div className="relative">
             <input
               type={`${showPassword ? "password" : "text"}`}
