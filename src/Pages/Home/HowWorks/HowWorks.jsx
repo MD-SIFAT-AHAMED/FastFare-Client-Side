@@ -39,7 +39,7 @@ const HowWorks = () => {
               <h3 className="text-xl font-semibold text-[#03373D]">
                 {cart.question}
               </h3>
-              <p className="text-base text-[#606060]">{cart.answer}</p>
+              <p className="font-medium text-[#606060]">{cart.answer}</p>
             </div>
           ))}
         </div>

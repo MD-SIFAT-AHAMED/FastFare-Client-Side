@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import FastFareLogo from "../FastFareLogo/FastFareLogo";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const links = (
     <>
       <li>Services</li>
-      <li>Coverage</li>
+      <li>
+        <NavLink to={'/coverage'}>Coverage</NavLink>
+      </li>
       <li>About Us</li>
       <li>Pricing</li>
       <li>Be a Rider</li>
@@ -37,13 +40,17 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center gap-4 text-[#606060] font-medium">
             {links}
           </ul>
-          <div className="flex items-center space-x-2 text-[#606060]">
-            <button className=" rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px]">
-              Sign In
-            </button>
-            <button className="hidden md:block rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px] bg-[#caeb66]">
-              Sign Up
-            </button>
+          <div className="flex items-center space-x-2 ">
+            <Link to={"/login"}>
+              <button className=" rounded-xl btn btn-primary text-[#cbeb67] btn-outline font-bold hover:text-black px-[22px] py-[10px]">
+                Sign In
+              </button>
+            </Link>
+            <Link to={"/register"}>
+              <button className="hidden lg:block bg-primary rounded-xl btn btn-primary btn-outline font-bold text-[#606060] px-[22px] py-[10px]">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -58,12 +65,16 @@ const Navbar = () => {
         >
           <ul className="text-sm space-y-2 mt-4">{links}</ul>
           <div className="text-[#606060] flex flex-col gap-3 my-3">
-            <button className="rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px]">
-              Sign In
-            </button>
-            <button className="rounded-xl font-bold border-1 border-gray-300 px-[22px] py-[10px] bg-[#caeb66]">
-              Sign Up
-            </button>
+            <Link to={"/login"}>
+              <button className="rounded-xl btn btn-primary text-primary btn-outline hover:text-[#606060] w-full font-bold  px-[22px] py-[10px]">
+                Sign In
+              </button>
+            </Link>
+            <Link to={"/register"}>
+              <button className="rounded-xl btn btn-primary btn-outline text-[#606060] w-full font-bold  px-[22px] py-[10px] bg-[#caeb66]">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>

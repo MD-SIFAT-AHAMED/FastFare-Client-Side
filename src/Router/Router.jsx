@@ -5,8 +5,7 @@ import AuthLayout from "../Main/AuthLayout";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import ForgotPassword from "../Pages/Authentication/ForgotPassword/ForgotPassword";
-
-
+import CoverAge from "../Pages/CoverAge/CoverAge";
 
 const router = createBrowserRouter([
   {
@@ -17,25 +16,30 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-    ]
+      {
+        path: "/coverage",
+        Component: CoverAge,
+        loader: () => fetch("./services.json"),
+      },
+    ],
   },
   {
-    path:"/",
-    Component:AuthLayout,
-    children:[
+    path: "/",
+    Component: AuthLayout,
+    children: [
       {
-        path:'/login',
-        Component:Login
+        path: "/login",
+        Component: Login,
       },
       {
-        path:'/register',
-        Component:Register
+        path: "/register",
+        Component: Register,
       },
       {
-        path:'/forgotPassword',
-        Component:ForgotPassword
-      }
-    ]
-  }
+        path: "/forgotPassword",
+        Component: ForgotPassword,
+      },
+    ],
+  },
 ]);
 export default router;
