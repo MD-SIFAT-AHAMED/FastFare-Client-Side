@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import FastFareLogo from "../FastFareLogo/FastFareLogo";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import { Link, NavLink } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const {user} = useAuth();
+
   const links = (
     <>
       <li>Services</li>
@@ -17,6 +20,9 @@ const Navbar = () => {
       <li>About Us</li>
       <li>Pricing</li>
       <li>Be a Rider</li>
+      {
+        user && <NavLink to={'/dashboard'}><li>DashBoard</li></NavLink>
+      }
     </>
   );
   return (

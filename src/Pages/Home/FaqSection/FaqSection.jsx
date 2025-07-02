@@ -45,8 +45,9 @@ const FaqSection = () => {
           Pro. Achieve proper alignment, reduce pain, and strengthen your body
           with ease!
         </p>
-        {faqs.map((faq) => (
+        {faqs.map((faq,i) => (
           <div
+          key={i}
             tabIndex={0}
             className="collapse collapse-arrow  focus:border border-[#03373D] bg-base-100 focus:bg-[#e6f2f3] mb-3"
           >

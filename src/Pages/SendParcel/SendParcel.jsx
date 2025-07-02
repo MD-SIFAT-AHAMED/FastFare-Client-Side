@@ -36,11 +36,11 @@ const SendParcel = () => {
     const isSameCity = data.senderRegion === data.receiverRegion;
     const weight = parseFloat(data.weight || 0);
 
-    if (data.type === "document") {
+    if (data.type === "Document") {
       return isSameCity ? 60 : 80;
     }
 
-    if (data.type === "non-document") {
+    if (data.type === "Non-Document") {
       if (weight <= 3) {
         return isSameCity ? 110 : 150;
       } else {
@@ -66,7 +66,7 @@ const SendParcel = () => {
       cost: cost,
       created_by: user.email,
       delivery_status: "Not_collected",
-      payment_status: "unPaid",
+      payment_status: "UnPaid",
       trackingId: GenerateTrackingId(),
       creation_date: new Date().toISOString(),
     };
@@ -102,7 +102,7 @@ const SendParcel = () => {
                   <label className="label cursor-pointer">
                     <input
                       type="radio"
-                      value="document"
+                      value="Document"
                       {...register("type", { required: true })}
                       className="radio radio-primary"
                     />{" "}
@@ -111,7 +111,7 @@ const SendParcel = () => {
                   <label className="label cursor-pointer">
                     <input
                       type="radio"
-                      value="non-document"
+                      value="Non-Document"
                       {...register("type", { required: true })}
                       className="radio radio-primary"
                     />{" "}

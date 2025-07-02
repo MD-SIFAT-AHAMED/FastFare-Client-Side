@@ -8,6 +8,8 @@ import ForgotPassword from "../Pages/Authentication/ForgotPassword/ForgotPasswor
 import CoverAge from "../Pages/CoverAge/CoverAge";
 import PrivateRouter from "../Routes/PrivateRouter";
 import SendParcel from "../Pages/SendParcel/SendParcel";
+import DashBoardLayout from "../Main/DashBoardLayout";
+import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,24 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+  // DashboardLayOut Routes
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRouter>
+        <DashBoardLayout />
+      </PrivateRouter>
+    ),
+    children: [
+      {
+        path: "myParcels",
+        Component: MyParcels,
+      },
+    ]
+  },
+
+  // AuthLayout Routes
   {
     path: "/",
     Component: AuthLayout,
