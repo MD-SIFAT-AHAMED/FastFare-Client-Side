@@ -10,6 +10,7 @@ import PrivateRouter from "../Routes/PrivateRouter";
 import SendParcel from "../Pages/SendParcel/SendParcel";
 import DashBoardLayout from "../Main/DashBoardLayout";
 import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
         path: "myParcels",
         Component: MyParcels,
       },
-    ]
+      {
+        path: "payment/:parcelId",
+        Component: Payment,
+      },
+    ],
   },
 
   // AuthLayout Routes

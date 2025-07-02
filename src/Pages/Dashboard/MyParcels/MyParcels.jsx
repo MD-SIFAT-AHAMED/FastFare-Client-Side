@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const MyParcels = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [selectedParcel, setSelectedParcel] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const navigate = useNavigate();
 
   const { data: parcel = [], refetch } = useQuery({
     queryKey: ["my-parcel", user.email],
@@ -26,14 +28,10 @@ const MyParcels = () => {
 
   // Handle payment update
   const handlePayment = (id) => {
-    // const updated = parcels.map((parcel) =>
-    //   parcel._id === id ? { ...parcel, payment_status: "paid" } : parcel
-    // );
-    // setParcels(updated);
+    navigate(`/dashboard/payment/${id}`);
   };
 
   // Handle deletion
-
   const confirmDelete = async () => {
     if (deleteTarget) {
       try {

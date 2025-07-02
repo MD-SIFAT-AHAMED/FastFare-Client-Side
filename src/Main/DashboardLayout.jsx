@@ -53,12 +53,12 @@ const DashBoardLayout = () => {
 
             <li>
               <NavLink to={"/"}>
-                <li>Home</li>
+                Home
               </NavLink>
             </li>
             <li>
               <NavLink to={"/dashboard/myParcels"}>
-                <li>My Parcel</li>
+                My Parcel
               </NavLink>
             </li>
           </ul>

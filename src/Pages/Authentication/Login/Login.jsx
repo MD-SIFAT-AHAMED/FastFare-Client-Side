@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
 
@@ -17,12 +17,15 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(true);
   const { signIn, loginWithGoggle } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
     signIn(data.email, data.password)
       .then(() => {
         toast.success("Login Successfuly");
+        navigate(location.state?.from || "/");
       })
       .catch((err) => {
         toast.error(err.code);
@@ -35,6 +38,7 @@ const Login = () => {
     loginWithGoggle()
       .then(() => {
         toast.success("Login Successfuly");
+        navigate(location.state?.from || "/");
       })
       .catch((err) => {
         toast.error(err.code);
