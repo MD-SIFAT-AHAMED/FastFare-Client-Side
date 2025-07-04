@@ -1,9 +1,10 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import useAuth from "../../../Hooks/useAuth";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -11,6 +12,8 @@ const PaymentForm = () => {
   const [error, setError] = useState(null);
   const { parcelId } = useParams();
   const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const { isPending, data: parcelInfo = {} } = useQuery({
     queryKey: ["parcels", parcelId],
     queryFn: async () => {
@@ -35,6 +38,7 @@ const PaymentForm = () => {
       return;
     }
 
+    //  step 1: validate the card
     const card = elements.getElement(CardElement);
     if (!card) {
       return;
@@ -50,28 +54,48 @@ const PaymentForm = () => {
     } else {
       setError(null);
       console.log("paymentMethod", paymentMethod);
-    }
 
-    // step 2: create payment intent
-    const res = await axiosSecure.post("/create-payment-intent", {
-      amount: amountInCents,
-      parcelId,
-    });
-    const clientSecret = res.data.clientSecret;
-    const result = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card,
-        billing_details: {
-          name: "Test User",
+      // step 2: create payment intent
+      const res = await axiosSecure.post("/create-payment-intent", {
+        amount: amountInCents,
+        parcelId,
+      });
+      const clientSecret = res.data.clientSecret;
+
+      //step-3:  confirm payment
+      const result = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card,
+          billing_details: {
+            name: user.displayName,
+            email: user.email,
+          },
         },
-      },
-    });
-    if (result.error) {
-      setError(result.error.message);
-    } else {
-      if (result.paymentIntent.status === "succeeded") {
-        toast.success("Payment successful");
+      });
+      console.log(result)
+      if (result.error) {
+        setError(result.error.message);
+      } else {
+        if (result.paymentIntent.status === "succeeded") {
+          setError(null);
+
+          // step-4: mark parcel paid also create payment history
+          const paymentData = {
+            parcelId,
+            userEmail: user.email,
+            amount,
+            transactionId: result.paymentIntent.id,
+            // paymentMethod: result.paymentIntent.payment_method_types,
+          };
+          const paymentRes = await axiosSecure.post("/payments", paymentData);
+          console.log("hi", paymentRes);
+          if (paymentRes.data.paymentId) {
+            toast.success("Payment Successful");
+            navigate("/dashboard/myParcels");
+          }
+        }
       }
+      console.log(result);
     }
   };
 

@@ -74,7 +74,7 @@ const MyParcels = () => {
               <td>
                 <span
                   className={`badge ${
-                    parcel.payment_status === "Paid"
+                    parcel.payment_status === "paid"
                       ? "badge-success"
                       : "badge-error"
                   }  capitalize`}

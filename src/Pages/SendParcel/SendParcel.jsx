@@ -136,7 +136,7 @@ const SendParcel = () => {
                 )}
               </div>
 
-              {type === "non-document" && (
+              {type === "Non-Document" && (
                 <div>
                   <label className="font-medium">Parcel Weight (KG):</label>
                   <input
