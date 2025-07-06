@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import FastFareLogo from "../Pages/Shared/FastFareLogo/FastFareLogo";
+import { FaHome, FaBox, FaCreditCard, FaUserEdit } from "react-icons/fa";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const DashBoardLayout = () => {
   return (
@@ -43,8 +45,8 @@ const DashBoardLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-            <Link to={'/'}>
+          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 **:hover:text-green-800">
+            <Link to={"/"}>
               <div className="mb-3 w-fit">
                 <FastFareLogo />
               </div>
@@ -52,13 +54,43 @@ const DashBoardLayout = () => {
             {/* Sidebar content here */}
 
             <li>
-              <NavLink to={"/"}>
-                Home
+              <NavLink
+                to={"/"}
+                className="flex items-center gap-3 text-base py-2 "
+              >
+                <FaHome className="text-lg" /> Home
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/dashboard/myParcels"}>
-                My Parcel
+              <NavLink
+                to={"/dashboard/myParcels"}
+                className="flex items-center gap-3 text-base py-2 "
+              >
+                <FaBox className="text-lg" /> My Parcel
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/dashboard/paymentHistory"}
+                className="flex items-center gap-3 text-base py-2 "
+              >
+                <FaCreditCard className="text-lg" /> Payment History
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/dashboard/track"}
+                className="flex items-center gap-3 text-base py-2"
+              >
+                <HiOutlineLocationMarker className="text-lg" /> Track a Package
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/dashboard/profile"}
+                className="flex items-center gap-3 text-base py-2 "
+              >
+                <FaUserEdit className="text-lg" /> Update Profile
               </NavLink>
             </li>
           </ul>
