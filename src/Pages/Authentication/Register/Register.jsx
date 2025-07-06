@@ -6,6 +6,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Register = () => {
   const {
@@ -16,12 +17,14 @@ const Register = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(true);
   const { createUser, updateUserData, loginWithGoggle } = useAuth();
+  const [profileImg, setProfileImg] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const userData = {
       displayName: data.name,
+      photoURL: profileImg,
     };
     createUser(data.email, data.password)
       .then(() => {
@@ -39,6 +42,17 @@ const Register = () => {
       });
     // Form value reset
     reset();
+  };
+
+  const handleImageUpload = async (e) => {
+    const image = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const imageUrl = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_image_upload_api
+    }`;
+    const res = await axios.post(imageUrl, formData);
+    setProfileImg(res.data.data.url);
   };
 
   const handlerLoginWithGoogle = () => {
@@ -75,6 +89,14 @@ const Register = () => {
           {errors.email?.type === "required" && (
             <p className="!text-red-500">Please Enter Your Name</p>
           )}
+
+          <label className="label font-medium">Image</label>
+          <input
+            onChange={handleImageUpload}
+            type="file"
+            className="file-input w-full "
+            placeholder="Upload your image"
+          />
 
           <label className="label font-medium">Email</label>
           <input
