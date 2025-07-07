@@ -21,7 +21,9 @@ const Navbar = () => {
       </li>
       <li>About Us</li>
       <li>Pricing</li>
-      <li>Be a Rider</li>
+      <NavLink to={'beARider'}>
+        <li>Be a Rider</li>
+      </NavLink>
       {user && (
         <NavLink to={"/dashboard"}>
           <li>DashBoard</li>
@@ -100,9 +102,10 @@ const Navbar = () => {
           <ul className="text-sm space-y-2 mt-4">{links}</ul>
           <div className="text-[#606060] flex flex-col gap-3 my-3">
             {user ? (
-              <button 
-              onClick={handlerlLogOut}
-              className="rounded-xl btn btn-primary text-[#cbeb67] btn-outline font-bold hover:text-black px-[22px] py-[10px]">
+              <button
+                onClick={handlerlLogOut}
+                className="rounded-xl btn btn-primary text-[#cbeb67] btn-outline font-bold hover:text-black px-[22px] py-[10px]"
+              >
                 Log Out
               </button>
             ) : (

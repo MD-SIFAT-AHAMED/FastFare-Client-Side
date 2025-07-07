@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import useAxios from "../../../Hooks/useAxios";
 
 const Register = () => {
   const {
@@ -20,14 +21,28 @@ const Register = () => {
   const [profileImg, setProfileImg] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const axiosInstance = useAxios();
 
   const onSubmit = (data) => {
+    //
+
     const userData = {
       displayName: data.name,
       photoURL: profileImg,
     };
     createUser(data.email, data.password)
-      .then(() => {
+      .then(async () => {
+        // Update userInfo in the database
+        const userInfo = {
+          email: data.email,
+          role: "user", //default role
+          create_at: new Date().toISOString(),
+          last_log_in: new Date().toISOString(),
+        };
+
+        const userRes = await axiosInstance.post("/users", userInfo);
+        console.log(userRes);
+        // Update user profile in firebase
         updateUserData(userData)
           .then(() => {
             toast.success("Login Successfuly");
@@ -57,7 +72,17 @@ const Register = () => {
 
   const handlerLoginWithGoogle = () => {
     loginWithGoggle()
-      .then(() => {
+      .then(async (result) => {
+        const user = result.user;
+        // Update userInfo in the database
+        const userInfo = {
+          email: user.email,
+          role: "user", //default role
+          create_at: new Date().toISOString(),
+          last_log_in: new Date().toISOString(),
+        };
+        const userRes = await axiosInstance.post("/users", userInfo);
+
         toast.success("Login Successfuly");
         navigate(location.state?.from || "/");
       })

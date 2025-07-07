@@ -6,6 +6,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxios from "../../../Hooks/useAxios";
 
 const Login = () => {
   const {
@@ -19,6 +20,7 @@ const Login = () => {
   const { signIn, loginWithGoggle } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const axiosInstance = useAxios();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -36,7 +38,17 @@ const Login = () => {
 
   const handlerLoginWithGoogle = () => {
     loginWithGoggle()
-      .then(() => {
+      .then(async (result) => {
+        const user = result.user;
+        // Update userInfo in the database
+        const userInfo = {
+          email: user.email,
+          role: "user", //default role
+          create_at: new Date().toISOString(),
+          last_log_in: new Date().toISOString(),
+        };
+        const userRes = await axiosInstance.post("/users", userInfo);
+
         toast.success("Login Successfuly");
         navigate(location.state?.from || "/");
       })

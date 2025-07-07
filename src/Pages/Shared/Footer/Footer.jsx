@@ -14,7 +14,7 @@ const Footer = () => {
               we deliver on time, every time.
             </p>
           </aside>
-          <ul className="flex flex-col md:flex-row justify-center items-center border-y-1 border-dashed border-gray-400 py-5 w-11/12">
+          <ul className="flex  flex-wrap flex-row justify-center items-center border-y-1 border-dashed border-gray-400 py-5 w-11/12">
             <li>Services</li>
             <li>Coverage</li>
             <li>About us</li>

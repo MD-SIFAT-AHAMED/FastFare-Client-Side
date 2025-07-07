@@ -119,7 +119,7 @@ const SendParcel = () => {
                   </label>
                 </div>
                 {errors.type && (
-                  <p className="text-red-500">Parcel type is required</p>
+                  <p className="text-red-500 text-sm">Parcel type is required</p>
                 )}
               </div>
 
@@ -132,7 +132,7 @@ const SendParcel = () => {
                   className="input input-bordered w-full mt-1"
                 />
                 {errors.title && (
-                  <p className="text-red-500">Parcel Name is required</p>
+                  <p className="text-red-500 text-sm">Parcel Name is required</p>
                 )}
               </div>
 
@@ -251,7 +251,7 @@ const SendParcel = () => {
                       className="input input-bordered w-full mt-1"
                     />
                     {errors.senderName && (
-                      <p className="text-red-500">Sender name is required</p>
+                      <p className="text-red-500 text-sm">Sender name is required</p>
                     )}
                   </div>
                   <div>
@@ -263,7 +263,7 @@ const SendParcel = () => {
                       className="input input-bordered w-full mt-1"
                     />
                     {errors.senderContact && (
-                      <p className="text-red-500">Sender contact is required</p>
+                      <p className="text-red-500 text-sm">Sender contact is required</p>
                     )}
                   </div>
                 </div>
@@ -286,7 +286,7 @@ const SendParcel = () => {
                       ))}
                     </select>
                     {errors.senderRegion && (
-                      <p className="text-red-500">Sender region is required</p>
+                      <p className="text-red-500 text-sm">Sender region is required</p>
                     )}
                   </div>
                   <div>
@@ -305,7 +305,7 @@ const SendParcel = () => {
                         ))}
                     </select>
                     {errors.senderCenter && (
-                      <p className="text-red-500">Sender center is required</p>
+                      <p className="text-red-500 text-sm">Sender center is required</p>
                     )}
                   </div>
                 </div>
@@ -318,7 +318,7 @@ const SendParcel = () => {
                     className="input input-bordered w-full mt-1"
                   />
                   {errors.senderAddress && (
-                    <p className="text-red-500">Sender address is required</p>
+                    <p className="text-red-500 text-sm">Sender address is required</p>
                   )}
                 </div>
                 <div>
@@ -330,7 +330,7 @@ const SendParcel = () => {
                     className="input input-bordered w-full mt-1"
                   />
                   {errors.pickupInstruction && (
-                    <p className="text-red-500">
+                    <p className="text-red-500 text-sm">
                       Pick up instruction is required
                     </p>
                   )}
@@ -438,7 +438,7 @@ const SendParcel = () => {
                       className="input input-bordered w-full mt-1"
                     />
                     {errors.receiverName && (
-                      <p className="text-red-500">Receiver name is required</p>
+                      <p className="text-red-500 text-sm">Receiver name is required</p>
                     )}
                   </div>
                   <div>
@@ -450,7 +450,7 @@ const SendParcel = () => {
                       className="input input-bordered w-full mt-1"
                     />
                     {errors.receiverContact && (
-                      <p className="text-red-500">
+                      <p className="text-red-500 text-sm">
                         Receiver contact is required
                       </p>
                     )}
@@ -475,7 +475,7 @@ const SendParcel = () => {
                       ))}
                     </select>
                     {errors.receiverRegion && (
-                      <p className="text-red-500">
+                      <p className="text-red-500 text-sm">
                         Receiver region is required
                       </p>
                     )}
@@ -498,7 +498,7 @@ const SendParcel = () => {
                         ))}
                     </select>
                     {errors.receiverCenter && (
-                      <p className="text-red-500">
+                      <p className="text-red-500 text-sm">
                         Receiver center is required
                       </p>
                     )}
@@ -513,7 +513,7 @@ const SendParcel = () => {
                     className="input input-bordered w-full mt-1"
                   />
                   {errors.receiverAddress && (
-                    <p className="text-red-500">Receiver address is required</p>
+                    <p className="text-red-500 text-sm">Receiver address is required</p>
                   )}
                 </div>
                 <div>
@@ -525,7 +525,7 @@ const SendParcel = () => {
                     className="input input-bordered w-full mt-1"
                   />
                   {errors.deliveryInstruction && (
-                    <p className="text-red-500">
+                    <p className="text-red-500 text-sm">
                       Delivery instruction is required
                     </p>
                   )}

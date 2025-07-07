@@ -13,6 +13,7 @@ import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import TrackParcel from "../Pages/Dashboard/TrackParcel/TrackParcel";
+import BeARider from "../Pages/BeARider/BeARider";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,15 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+      {
+        path: "beARider",
+        loader: () => fetch("./services.json"),
+        element: (
+          <PrivateRouter>
+            <BeARider />
+          </PrivateRouter>
+        ),
+      },
     ],
   },
 
@@ -49,6 +59,10 @@ const router = createBrowserRouter([
       </PrivateRouter>
     ),
     children: [
+      {
+        index: true,
+        Component: MyParcels,
+      },
       {
         path: "myParcels",
         Component: MyParcels,
