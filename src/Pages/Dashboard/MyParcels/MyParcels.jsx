@@ -54,7 +54,7 @@ const MyParcels = () => {
       <table className="table table-zebra w-full">
         <thead className="bg-base-200">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Title</th>
             <th>Type</th>
             <th>Cost</th>

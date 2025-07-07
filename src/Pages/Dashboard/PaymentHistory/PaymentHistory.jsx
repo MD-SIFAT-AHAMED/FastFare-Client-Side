@@ -23,7 +23,7 @@ const PaymentHistory = () => {
       <table className="table w-full">
         <thead className="bg-base-200 text-sm">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Parcel ID</th>
             <th>User Email</th>
             <th>Amount</th>

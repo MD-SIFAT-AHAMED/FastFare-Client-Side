@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import FastFareLogo from "../Pages/Shared/FastFareLogo/FastFareLogo";
-import { FaHome, FaBox, FaCreditCard, FaUserEdit } from "react-icons/fa";
+import { FaHome, FaBox, FaCreditCard, FaUserEdit, FaUserClock, FaUsers } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const DashBoardLayout = () => {
@@ -91,6 +91,23 @@ const DashBoardLayout = () => {
                 className="flex items-center gap-3 text-base py-2 "
               >
                 <FaUserEdit className="text-lg" /> Update Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/dashboard/active-riders"}
+                className="flex items-center gap-3 text-base py-2"
+              >
+                <FaUsers className="text-lg" /> Active Riders
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to={"/dashboard/pending-riders"}
+                className="flex items-center gap-3 text-base py-2"
+              >
+                <FaUserClock className="text-lg" /> Pending Riders
               </NavLink>
             </li>
           </ul>

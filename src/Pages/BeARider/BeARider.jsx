@@ -92,8 +92,8 @@ const BeARider = () => {
                   type="email"
                   defaultValue={user?.email}
                   readOnly
-                  placeholder="example@email.com"
                   className="input input-bordered w-full"
+                  {...register("email", { required: true })}
                 />
               </div>
 
