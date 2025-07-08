@@ -50,7 +50,8 @@ const MyParcels = () => {
   };
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-base-300">
+    <div className="overflow-x-auto rounded-lg ">
+      <h2 className="text-xl font-bold mb-4">My Parcel</h2>
       <table className="table table-zebra w-full">
         <thead className="bg-base-200">
           <tr>

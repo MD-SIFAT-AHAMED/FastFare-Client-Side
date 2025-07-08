@@ -20,6 +20,7 @@ const PaymentHistory = () => {
   console.log(payments);
   return (
     <div className="overflow-x-auto rounded-lg ">
+      <h2 className="text-xl font-bold mb-4">Payment History</h2>
       <table className="table w-full">
         <thead className="bg-base-200 text-sm">
           <tr>

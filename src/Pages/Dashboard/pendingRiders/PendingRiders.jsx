@@ -17,7 +17,7 @@ const PendingRiders = () => {
     },
   });
   const [selectedRider, setSelectedRider] = useState(null);
-  const [modalType, setModalType] = useState(""); // 'view', 'approve', 'delete'
+  const [modalType, setModalType] = useState(""); // 'view', 'approve', 'Rejected'
 
   const openModal = (rider, type) => {
     setSelectedRider(rider);
@@ -26,15 +26,19 @@ const PendingRiders = () => {
   };
 
   if (isPending) {
-    return <p>....loading</p>;
+    return "....loading";
   }
-  const handleApprove = async () => {
+  const handleDecision = async (action) => {
     try {
       const res = await axiosSecure.patch(`/riders/${selectedRider._id}`, {
-        status: "approved",
+        status: action,
       });
       if (res.data.modifiedCount > 0) {
-        toast.success("Approve Successful");
+        if (action === "active") {
+          toast.success("Approve Successful");
+        } else {
+          toast.success("Rejected Successful");
+        }
         refetch(); // re-fetch data from server
       }
     } catch (err) {
@@ -43,18 +47,18 @@ const PendingRiders = () => {
     }
   };
 
-  const handleDelete = async () => {
-    try {
-      const res = await axiosSecure.delete(`/riders/${selectedRider._id}`);
-      if (res.data.deletedCount > 0) {
-        toast.success("Delete Successful");
-        refetch();
-      }
-    } catch (err) {
-      console.error("Delete failed:", err);
-    }
-    closeModal();
-  };
+  //   const handleRejected = async () => {
+  //     try {
+  //       const res = await axiosSecure.Rejected(`/riders/${selectedRider._id}`);
+  //       if (res.data.RejecteddCount > 0) {
+  //         toast.success("Rejected Successful");
+  //         refetch();
+  //       }
+  //     } catch (err) {
+  //       console.error("Rejected failed:", err);
+  //     }
+  //     closeModal();
+  //   };
 
   const closeModal = () => {
     setSelectedRider(null);
@@ -64,6 +68,7 @@ const PendingRiders = () => {
 
   return (
     <div className="overflow-x-auto">
+      <h2 className="text-xl font-bold mb-4">Pending Riders</h2>
       <table className="table table-zebra w-full">
         <thead>
           <tr>
@@ -107,9 +112,9 @@ const PendingRiders = () => {
                 </button>
                 <button
                   className="btn btn-xs btn-outline btn-error"
-                  onClick={() => openModal(rider, "delete")}
+                  onClick={() => openModal(rider, "Rejected")}
                 >
-                  Delete
+                  Rejected
                   {/* <FaTrash /> */}
                 </button>
                 <button
@@ -187,7 +192,7 @@ const PendingRiders = () => {
                   </button>
                   <button
                     className="btn btn-success ml-2"
-                    onClick={handleApprove}
+                    onClick={() => handleDecision("active")}
                   >
                     Confirm
                   </button>
@@ -196,12 +201,12 @@ const PendingRiders = () => {
             </>
           )}
 
-          {/* DELETE Modal */}
-          {modalType === "delete" && selectedRider && (
+          {/* Rejected Modal */}
+          {modalType === "Rejected" && selectedRider && (
             <>
-              <h3 className="font-bold text-lg">Delete Rider</h3>
+              <h3 className="font-bold text-lg">Rejected Rider</h3>
               <p className="py-4 text-red-600">
-                Are you sure you want to delete{" "}
+                Are you sure you want to Rejected{" "}
                 <strong>{selectedRider.name}</strong>? This action cannot be
                 undone.
               </p>
@@ -210,8 +215,11 @@ const PendingRiders = () => {
                   <button className="btn" onClick={closeModal}>
                     Cancel
                   </button>
-                  <button className="btn btn-error ml-2" onClick={handleDelete}>
-                    Delete
+                  <button
+                    className="btn btn-error ml-2"
+                    onClick={() => handleDecision("rejected")}
+                  >
+                    Rejected
                   </button>
                 </form>
               </div>
