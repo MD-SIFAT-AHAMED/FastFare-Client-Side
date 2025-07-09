@@ -9,6 +9,7 @@ import {
   FaUserClock,
   FaUsers,
   FaUserShield,
+  FaMotorcycle,
 } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import UseUserRole from "../Hooks/UseUserRole";
@@ -121,6 +122,14 @@ const DashBoardLayout = () => {
                     className="flex items-center gap-3 text-base py-2"
                   >
                     <FaUserClock className="text-lg" /> Pending Riders
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={"/dashboard/assignRider"}
+                    className="flex items-center gap-3 text-base py-2"
+                  >
+                    <FaMotorcycle className="text-lg" /> Assign Rider
                   </NavLink>
                 </li>
 

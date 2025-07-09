@@ -15,7 +15,7 @@ const ActiveRider = () => {
   } = useQuery({
     queryKey: ["acitve-rider"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/riders/acitve");
+      const res = await axiosSecure.get("/riders/active");
       return res.data;
     },
   });
