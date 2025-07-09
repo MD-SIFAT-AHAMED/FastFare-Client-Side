@@ -1,7 +1,15 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import FastFareLogo from "../Pages/Shared/FastFareLogo/FastFareLogo";
-import { FaHome, FaBox, FaCreditCard, FaUserEdit, FaUserClock, FaUsers } from "react-icons/fa";
+import {
+  FaHome,
+  FaBox,
+  FaCreditCard,
+  FaUserEdit,
+  FaUserClock,
+  FaUsers,
+  FaUserShield,
+} from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const DashBoardLayout = () => {
@@ -108,6 +116,21 @@ const DashBoardLayout = () => {
                 className="flex items-center gap-3 text-base py-2"
               >
                 <FaUserClock className="text-lg" /> Pending Riders
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/dashboard/makeAdmin"
+                className="flex items-center gap-3 text-base py-2"
+                // className={({ isActive }) =>
+                //   `flex items-center gap-3 p-2 rounded-lg ${
+                //     isActive ? "bg-primary text-white" : "hover:bg-base-300"
+                // //   }`
+                // }
+              >
+                <FaUserShield className="text-lg" />
+                <span className="font-medium">Make Admin</span>
               </NavLink>
             </li>
           </ul>

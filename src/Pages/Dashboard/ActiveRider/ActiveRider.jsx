@@ -67,6 +67,7 @@ const ActiveRider = () => {
                 <th>Region</th>
                 <th>District</th>
                 <th>Email</th>
+                <th>status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -85,6 +86,7 @@ const ActiveRider = () => {
                       </span>
                     </div>
                   </td>
+                  <td><span className="badge badge-success">{rider.status}</span></td>
                   <td>
                     <button
                       className="btn btn-xs btn-outline btn-error"

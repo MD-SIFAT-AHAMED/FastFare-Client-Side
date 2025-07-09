@@ -32,6 +32,7 @@ const PendingRiders = () => {
     try {
       const res = await axiosSecure.patch(`/riders/${selectedRider._id}`, {
         status: action,
+        email: selectedRider.email,
       });
       if (res.data.modifiedCount > 0) {
         if (action === "active") {
