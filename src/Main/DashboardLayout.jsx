@@ -11,8 +11,11 @@ import {
   FaUserShield,
 } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import UseUserRole from "../Hooks/UseUserRole";
 
 const DashBoardLayout = () => {
+  const { role, roleLoading } = UseUserRole();
+
   return (
     <div className="max-w-screen-2xl w-11/12 mx-auto">
       <div className="drawer lg:drawer-open">
@@ -101,38 +104,42 @@ const DashBoardLayout = () => {
                 <FaUserEdit className="text-lg" /> Update Profile
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to={"/dashboard/active-riders"}
-                className="flex items-center gap-3 text-base py-2"
-              >
-                <FaUsers className="text-lg" /> Active Riders
-              </NavLink>
-            </li>
+            {!roleLoading && role === "admin" && (
+              <>
+                <li>
+                  <NavLink
+                    to={"/dashboard/active-riders"}
+                    className="flex items-center gap-3 text-base py-2"
+                  >
+                    <FaUsers className="text-lg" /> Active Riders
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                to={"/dashboard/pending-riders"}
-                className="flex items-center gap-3 text-base py-2"
-              >
-                <FaUserClock className="text-lg" /> Pending Riders
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to={"/dashboard/pending-riders"}
+                    className="flex items-center gap-3 text-base py-2"
+                  >
+                    <FaUserClock className="text-lg" /> Pending Riders
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                to="/dashboard/makeAdmin"
-                className="flex items-center gap-3 text-base py-2"
-                // className={({ isActive }) =>
-                //   `flex items-center gap-3 p-2 rounded-lg ${
-                //     isActive ? "bg-primary text-white" : "hover:bg-base-300"
-                // //   }`
-                // }
-              >
-                <FaUserShield className="text-lg" />
-                <span className="font-medium">Make Admin</span>
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/makeAdmin"
+                    className="flex items-center gap-3 text-base py-2"
+                    // className={({ isActive }) =>
+                    //   `flex items-center gap-3 p-2 rounded-lg ${
+                    //     isActive ? "bg-primary text-white" : "hover:bg-base-300"
+                    // //   }`
+                    // }
+                  >
+                    <FaUserShield className="text-lg" />
+                    <span className="font-medium">Make Admin</span>
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
