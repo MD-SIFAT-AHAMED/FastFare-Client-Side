@@ -20,6 +20,8 @@ import MakeAdmin from "../Pages/Dashboard/MakeAdimin/MakeAdmin";
 import Forbidden from "../Pages/Forbidden/Forbidden";
 import AdminRouter from "../Routes/AdminRouter";
 import AssignRider from "../Pages/Dashboard/AssignRider/AssignRider";
+import RiderRouter from "../Routes/RiderRouter";
+import PendingDeliveries from "../Pages/Dashboard/PendingDeliveries/PendingDeliveries";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +91,17 @@ const router = createBrowserRouter([
         path: "track",
         Component: TrackParcel,
       },
+      // Rider only routes
+      {
+        path: "pendingDeliveries",
+        element: (
+          <RiderRouter>
+            <PendingDeliveries />
+          </RiderRouter>
+        ),
+      },
+
+      // Admin only routes
       {
         path: "pending-riders",
         element: (

@@ -10,6 +10,7 @@ import {
   FaUsers,
   FaUserShield,
   FaMotorcycle,
+  FaTruck,
 } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import UseUserRole from "../Hooks/UseUserRole";
@@ -105,6 +106,22 @@ const DashBoardLayout = () => {
                 <FaUserEdit className="text-lg" /> Update Profile
               </NavLink>
             </li>
+            
+            {/* Rider links */}
+            {!roleLoading && role ==='rider' &&
+              <>
+                <li>
+                  <NavLink
+                    to={"/dashboard/pendingDeliveries"}
+                    className="flex items-center gap-3 text-base py-2"
+                  >
+                    <FaTruck className="text-lg" /> Pending Deliveries
+                  </NavLink>
+                </li>
+              </>
+            }
+
+            {/* Admin links */}
             {!roleLoading && role === "admin" && (
               <>
                 <li>

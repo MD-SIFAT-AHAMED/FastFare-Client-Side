@@ -21,13 +21,15 @@ const Navbar = () => {
       </li>
       <li>About Us</li>
       <li>Pricing</li>
-      <NavLink to={'beARider'}>
-        <li>Be a Rider</li>
-      </NavLink>
+      <li>
+        <NavLink to={"beARider"}>Be a Rider</NavLink>
+      </li>
       {user && (
-        <NavLink to={"/dashboard"}>
-          <li>DashBoard</li>
-        </NavLink>
+        <li>
+          <NavLink to={"/dashboard"}>
+            <li>DashBoard</li>
+          </NavLink>
+        </li>
       )}
     </>
   );
